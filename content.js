@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 iconUrl: "icon.png",
                 title: "경고",
                 message: "자살예방센터 페이지로 이동합니다.",
-                silent: false
+                silent: false,
             });
 
             buttonContainer.remove();
@@ -33,3 +33,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         document.body.appendChild(buttonContainer);
     }
 });
+
+// 충동 유발 사이트 감지 및 알림
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+    if (changeInfo.status === 'complete' && tab.url.includes('충동유발사이트주소')) {
+        createNotification('충동적인 행동을 하기 전에 다시 한번 생각해 보세요.');
+    }
+});
+
+function createNotification(message) {
+    chrome.notifications.create({
+        type: "basic",
+        iconUrl: "icon.png",
+        title: "알림",
+        message: message,
+    });
+}
