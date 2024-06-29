@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "맞춤형 약 복용 알림 및 충동 확인",
+  "description": "시간별 약 복용 알림 및 충동 확인 기능을 제공합니다.",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab", "notifications", "alarms", "storage"
+  ]
+}
