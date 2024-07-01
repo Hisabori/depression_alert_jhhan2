@@ -57,6 +57,7 @@ function calculateAlarmTime(targetHour) {
     // ... (이전과 동일)
 }
 
+
 function createNotification(message) {
     chrome.notifications.create({
         type: "basic",
