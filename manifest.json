@@ -9,10 +9,33 @@
     "48": "icon.png",
     "128": "icon.png"
   },
-  "action": {
-    "default_popup": "popup.html"
-  },
   "permissions": [
-    "activeTab", "notifications", "alarms", "storage"
-  ]
+    "alarms",
+    "notifications",
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
 }
